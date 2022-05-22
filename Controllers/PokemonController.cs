@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using System.Text.Json;
 using System.Net.Http.Headers;
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Cors;
 
 namespace pokemon.Controllers
 {
@@ -24,7 +25,7 @@ namespace pokemon.Controllers
         {
             _logger = logger;
         }
-
+        [EnableCors("Policy")]
         [HttpGet]
         [Route("[controller]/getAll")]
         public async Task<ResponsePokemons> getAll()
@@ -65,6 +66,7 @@ namespace pokemon.Controllers
         }
 
         [HttpGet]
+        [EnableCors("Policy")]
         [Route("[controller]/getByName/{name}")]
         public async Task<Pokemon> getByName(string name)
         {

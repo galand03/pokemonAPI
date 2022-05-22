@@ -34,7 +34,7 @@ namespace pokemon
                 options.AddDefaultPolicy(
                     policy =>
                     {
-                        policy.WithOrigins("http://http://localhost/",
+                        policy.WithOrigins("http://localhost/",
                                             "https://pokewebapi.herokuapp.com/")
                                         .WithMethods("POST", "GET", "PUT")
                                         .WithHeaders("*");
