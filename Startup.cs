@@ -28,8 +28,19 @@ namespace pokemon
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers().AddJsonOptions(options =>
-        options.JsonSerializerOptions.PropertyNameCaseInsensitive = false);
+            services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNameCaseInsensitive = false);
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    policy =>
+                    {
+                        policy.WithOrigins("http://http://localhost/",
+                                            "https://pokewebapi.herokuapp.com/")
+                                        .WithMethods("POST", "GET", "PUT")
+                                        .WithHeaders("*");
+                    });
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "pokemon", Version = "v1" });
