@@ -25,7 +25,7 @@ namespace pokemon.Controllers
         {
             _logger = logger;
         }
-        [EnableCors("Policy")]
+        [EnableCors("policy")]
         [HttpGet]
         [Route("[controller]/getAll")]
         public async Task<ResponsePokemons> getAll()
@@ -66,7 +66,7 @@ namespace pokemon.Controllers
         }
 
         [HttpGet]
-        [EnableCors("Policy")]
+        [EnableCors("policy")]
         [Route("[controller]/getByName/{name}")]
         public async Task<Pokemon> getByName(string name)
         {
