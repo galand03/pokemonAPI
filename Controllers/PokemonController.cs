@@ -16,6 +16,7 @@ namespace pokemon.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+
     public class PokemonController : ControllerBase
     {
 
@@ -25,7 +26,7 @@ namespace pokemon.Controllers
         {
             _logger = logger;
         }
-        [EnableCors("policy")]
+
         [HttpGet]
         [Route("[controller]/getAll")]
         public async Task<ResponsePokemons> getAll()
@@ -66,7 +67,7 @@ namespace pokemon.Controllers
         }
 
         [HttpGet]
-        [EnableCors("policy")]
+        
         [Route("[controller]/getByName/{name}")]
         public async Task<Pokemon> getByName(string name)
         {
@@ -98,7 +99,7 @@ namespace pokemon.Controllers
                     pokemon.Name = result.Name;
                     pokemon.Sprites = result.Sprites;
 
-                    return pokemon;
+                    return result;
                 }
                 catch (System.Text.Json.JsonException) // Invalid JSON
                 {

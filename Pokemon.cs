@@ -14,6 +14,13 @@ namespace pokemon
             internal set;
         }
 
+        [JsonProperty("id")]
+        public int Id
+        {
+            get;
+            internal set;
+        }
+
         [JsonProperty("is_default")]
         public bool IsDefault
         {
